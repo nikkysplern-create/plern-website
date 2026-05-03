@@ -29,8 +29,13 @@ box-shadow:0 3px 10px rgba(0,0,0,0.05);
 z-index:999;
 }
 
-.logo{font-size:30px;font-weight:700;color:#6B4F3A;}
-nav a{margin-left:25px;text-decoration:none;color:#4a382d;}
+.logo{font-size:26px;font-weight:700;color:#6B4F3A;}
+
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:#4a382d;
+}
 
 /* HERO */
 .hero{
@@ -39,14 +44,32 @@ background:url('banner.jpg') center/cover;
 display:flex;
 align-items:center;
 justify-content:center;
-color:white;
 text-align:center;
+position:relative;
 }
-.hero h1{font-size:60px;}
+
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.2);
+}
+
+.hero h1{
+font-size:60px;
+color:#3B2A1E;
+position:relative;
+z-index:2;
+}
 
 /* SECTION */
 section{padding:100px 60px;}
-.title{text-align:center;font-size:36px;margin-bottom:50px;}
+
+.title{
+text-align:center;
+font-size:36px;
+margin-bottom:50px;
+}
 
 /* PRODUCTS */
 .products{
@@ -94,8 +117,8 @@ box-shadow:0 6px 15px rgba(0,0,0,0.15);
 /* CART BUTTON */
 .cart-icon{
 position:fixed;
-bottom:50px;
-right:50px;
+bottom:30px;
+right:30px;
 background:#7A8450;
 color:white;
 padding:12px 18px;
@@ -108,14 +131,14 @@ box-shadow:0 8px 20px rgba(0,0,0,0.2);
 /* CART */
 .cart{
 position:fixed;
-right:-370px;
+right:-450px;
 top:0;
-width:350px;
+width:420px;
 height:100%;
 background:white;
-box-shadow:-5px 0 25px rgba(0,0,0,0.15);
-padding:20px;
-transition:0.4s ease;
+box-shadow:-8px 0 30px rgba(0,0,0,0.2);
+padding:25px;
+transition:0.45s ease;
 z-index:1001;
 overflow:auto;
 }
@@ -173,6 +196,16 @@ margin-top:10px;
 cursor:pointer;
 }
 
+/* ABOUT */
+.about{
+max-width:800px;
+margin:auto;
+text-align:center;
+font-size:20px;
+line-height:1.8;
+color:#5a4a3f;
+}
+
 /* CONTACT */
 .contact{
 text-align:center;
@@ -197,8 +230,8 @@ padding:25px;
 <nav>
 <a href="#home">Home</a>
 <a href="#products">Products</a>
-<a href="#About us">Products</a>  
-<a href="#contact">Contact us</a>
+<a href="#about">About Us</a>
+<a href="#contact">Contact</a>
 </nav>
 </header>
 
@@ -243,7 +276,7 @@ Your Cart
 <img src="product1.jpg">
 <div class="card-content">
 <h3>Wall Frame</h3>
-<p>The man thinking</p>   
+<p>The man thinking</p>
 <div class="price">25,000฿</div>
 <div class="btn" onclick="addToCart('Wall Frame',120)">Add to Cart</div>
 </div>
@@ -267,6 +300,23 @@ Your Cart
 </div>
 </div>
 
+</div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+<h2 class="title">About Us</h2>
+
+<div class="about">
+Plern Everyday Furniture creates spaces, not just furniture.<br><br>
+
+Inspired by simplicity and natural living,<br>
+our collections are designed to bring calm, warmth, and balance into your home.<br><br>
+
+We focus on clean lines, earth tones, and timeless materials —<br>
+so every piece feels effortless, yet meaningful.<br><br>
+
+Living well starts with the space around you.
 </div>
 </section>
 
