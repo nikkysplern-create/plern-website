@@ -1,272 +1,133 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plern Everyday Furniture</title>
+<title>Plern Luxury Furniture</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
 body{
 font-family:'Prompt',sans-serif;
-background:#F8F4EE;
+margin:0;
+background:#F6F1EA;
 color:#2f241c;
-overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* NAV */
 header{
 position:fixed;
-top:0;
-left:0;
 width:100%;
-padding:18px 60px;
+background:white;
+padding:15px 40px;
 display:flex;
 justify-content:space-between;
-align-items:center;
-background:rgba(255,255,255,0.75);
-backdrop-filter:blur(12px);
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
 z-index:999;
-box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
 
 .logo{
-font-size:30px;
 font-weight:700;
-color:#6B4F3A;
-letter-spacing:1px;
-}
-
-nav a{
-text-decoration:none;
-color:#4a382d;
-margin-left:28px;
-font-weight:500;
-transition:.3s;
-}
-
-nav a:hover{
-color:#7A8450;
+font-size:22px;
 }
 
 /* HERO */
 .hero{
-height:100vh;
-background:url('banner.jpg') center/cover no-repeat;
+height:90vh;
+background:url('banner.jpg') center/cover;
 display:flex;
 align-items:center;
 justify-content:center;
-text-align:center;
-padding:20px;
-position:relative;
-}
-
-.hero::before{
-content:'';
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.35);
-}
-
-.hero-content{
-position:relative;
-z-index:2;
 color:white;
-max-width:850px;
-animation:fadeUp 1s ease;
+text-align:center;
 }
 
 .hero h1{
-font-size:72px;
-line-height:1.1;
-margin-bottom:18px;
-}
-
-.hero p{
-font-size:24px;
-font-weight:300;
-margin-bottom:30px;
-}
-
-.btn{
-display:inline-block;
-padding:15px 38px;
-background:#E8DCCB;
-color:#3a2a1e;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
-
-.btn:hover{
-transform:translateY(-4px);
-box-shadow:0 12px 25px rgba(0,0,0,0.12);
-}
-
-/* SECTION */
-section{
-padding:100px 60px;
-}
-
-.title{
-font-size:42px;
-text-align:center;
-margin-bottom:55px;
-color:#6B4F3A;
+font-size:60px;
 }
 
 /* PRODUCTS */
+section{
+padding:80px 40px;
+}
+
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-gap:28px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
 background:white;
-border-radius:20px;
+border-radius:15px;
 overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,0.07);
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 .card img{
 width:100%;
-height:260px;
+height:250px;
 object-fit:cover;
 }
 
 .card-content{
-padding:22px;
-}
-
-.card h3{
-font-size:24px;
-margin-bottom:8px;
-}
-
-.card p{
-color:#666;
+padding:15px;
 }
 
 .price{
-font-size:24px;
 font-weight:700;
-margin-top:14px;
-color:#7A8450;
+margin-top:10px;
 }
 
-/* ABOUT */
-.about{
-max-width:850px;
-margin:auto;
-text-align:center;
-font-size:22px;
-line-height:1.8;
-}
-
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:24px;
-margin-top:50px;
-}
-
-.feature{
-background:white;
-padding:28px;
-border-radius:18px;
-text-align:center;
-box-shadow:0 8px 18px rgba(0,0,0,0.05);
-font-weight:500;
-}
-
-/* CONTACT */
-.contact{
-text-align:center;
-font-size:22px;
-line-height:2;
-}
-
-.line-btn{
-display:inline-block;
-margin-top:25px;
-padding:14px 30px;
+.btn{
+margin-top:10px;
+display:block;
 background:#7A8450;
 color:white;
-border-radius:35px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
+text-align:center;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
 }
 
-.line-btn:hover{
-transform:translateY(-3px);
+/* CART */
+.cart{
+position:fixed;
+right:0;
+top:0;
+width:300px;
+height:100%;
+background:white;
+box-shadow:-3px 0 10px rgba(0,0,0,0.1);
+padding:20px;
+overflow:auto;
 }
 
-/* FOOTER */
-footer{
-background:#6B4F3A;
+.cart h2{
+text-align:center;
+}
+
+.cart-item{
+border-bottom:1px solid #ddd;
+padding:10px 0;
+}
+
+.total{
+font-weight:700;
+margin-top:15px;
+}
+
+/* CHECKOUT */
+.checkout{
+margin-top:15px;
+display:block;
+background:black;
 color:white;
 text-align:center;
-padding:30px;
-font-size:15px;
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* MOBILE */
-@media(max-width:768px){
-
-header{
-padding:15px 20px;
-}
-
-nav{
-display:none;
-}
-
-.hero h1{
-font-size:42px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-section{
-padding:80px 20px;
-}
-
-.title{
-font-size:32px;
-}
-
+padding:12px;
+border-radius:10px;
+text-decoration:none;
 }
 </style>
 </head>
@@ -274,103 +135,86 @@ font-size:32px;
 <body>
 
 <header>
-<div class="logo">Plern</div>
-
-<nav>
-<a href="#home">หน้าแรก</a>
-<a href="#products">สินค้า</a>
-<a href="#about">เกี่ยวกับเรา</a>
-<a href="#contact">ติดต่อ</a>
-</nav>
+<div class="logo">Plern Luxury</div>
 </header>
 
 <!-- HERO -->
-<section class="hero" id="home">
-<div class="hero-content">
-<h1>Everyday Furniture<br>For Better Living</h1>
-<p>เฟอร์นิเจอร์อบอุ่น ดีไซน์เรียบหรู สำหรับทุกวันของคุณ</p>
-<a href="#products" class="btn">ดูสินค้า</a>
+<div class="hero">
+<h1>Luxury Everyday Living</h1>
 </div>
-</section>
 
 <!-- PRODUCTS -->
-<section id="products">
-<h2 class="title">สินค้าแนะนำ</h2>
+<section>
+<h2>Our Collection</h2>
 
 <div class="products">
 
 <div class="card">
 <img src="product1.jpg">
 <div class="card-content">
-<h3>Picture</h3>
-<p>The man think</p>
-<div class="price">฿25,000</div>
+<h3>Minimal Picture</h3>
+<p>The man thinking</p>
+<div class="price">25,000฿</div>
+<div class="btn" onclick="addToCart('The man thinking',25,000฿)">Add to Cart</div>
 </div>
 </div>
 
 <div class="card">
 <img src="product2.jpg">
 <div class="card-content">
-<h3>Oak Desk</h3>
-<p>โต๊ะทำงานไม้แท้ เรียบหรู</p>
-<div class="price">฿4,590</div>
+<h3>Wood Desk</h3>
+<p>Natural wood workspace table</p>
+<div class="price">$130</div>
+<div class="btn" onclick="addToCart('Wood Desk',130)">Add to Cart</div>
 </div>
 </div>
 
 <div class="card">
 <img src="product3.jpg">
 <div class="card-content">
-<h3>Warm Bed</h3>
-<p>เตียงไม้ Earth Tone</p>
-<div class="price">฿9,990</div>
-</div>
-</div>
-
-<div class="card">
-<img src="product4.jpg">
-<div class="card-content">
-<h3>Storage Shelf</h3>
-<p>ชั้นวางของเรียบง่าย</p>
-<div class="price">฿2,490</div>
+<h3>Bed Frame</h3>
+<p>Minimal Japanese-style bed</p>
+<div class="price">$300</div>
+<div class="btn" onclick="addToCart('Bed Frame',300)">Add to Cart</div>
 </div>
 </div>
 
 </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-<h2 class="title">เกี่ยวกับเรา</h2>
+<!-- CART -->
+<div class="cart">
+<h2>Your Cart</h2>
 
-<div class="about">
-Plern Everyday Furniture สร้างเฟอร์นิเจอร์ที่ออกแบบมาเพื่อชีวิตจริง  
-เรียบง่าย ใช้งานได้ทุกวัน และทำให้บ้านน่าอยู่มากขึ้น
+<div id="cart-items"></div>
+
+<div class="total" id="total">Total: $0</div>
+
+<a href="https://line.me/ti/p/@yourline" class="checkout">
+Checkout via LINE
+</a>
+
 </div>
 
-<div class="features">
-<div class="feature">วัสดุคุณภาพสูง</div>
-<div class="feature">ดีไซน์ทันสมัย</div>
-<div class="feature">ส่งทั่วประเทศ</div>
-<div class="feature">บริการใส่ใจ</div>
-</div>
-</section>
+<script>
+let cart=[];
+let total=0;
 
-<!-- CONTACT -->
-<section id="contact">
-<h2 class="title">ติดต่อเรา</h2>
+function addToCart(name,price){
+cart.push({name,price});
+total+=price;
+renderCart();
+}
 
-<div class="contact">
-LINE : @plernfurniture <br>
-Facebook : Plern Furniture <br>
-Instagram : @plern.everyday
-<br>
-<a href="#" class="line-btn">แชทสั่งซื้อ</a>
-</div>
-</section>
-
-<footer>
-© 2026 Plern Everyday Furniture
-</footer>
+function renderCart(){
+let html='';
+cart.forEach(item=>{
+html+=`<div class="cart-item">${item.name} - $${item.price}</div>`;
+});
+document.getElementById('cart-items').innerHTML=html;
+document.getElementById('total').innerText='Total: $'+total;
+}
+</script>
 
 </body>
 </html>
