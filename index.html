@@ -37,7 +37,7 @@ text-decoration:none;
 color:#4a382d;
 }
 
-/* HERO */
+/* HERO (CREAM SOFT) */
 .hero{
 height:100vh;
 background:url('banner.jpg') center/cover;
@@ -52,7 +52,7 @@ position:relative;
 content:'';
 position:absolute;
 inset:0;
-background:rgba(0,0,0,0.2);
+background:rgba(248,244,238,0.85); /* cream soft overlay */
 }
 
 .hero h1{
@@ -63,12 +63,12 @@ z-index:2;
 }
 
 /* SECTION */
-section{padding:100px 60px;}
+section{padding:80px 60px;} /* ลดช่องว่างรวม */
 
 .title{
 text-align:center;
-font-size:36px;
-margin-bottom:50px;
+font-size:34px;
+margin-bottom:35px;
 }
 
 /* PRODUCTS */
@@ -121,24 +121,25 @@ bottom:30px;
 right:30px;
 background:#7A8450;
 color:white;
-padding:12px 18px;
+padding:14px 22px;
 border-radius:30px;
 cursor:pointer;
 z-index:1000;
-box-shadow:0 8px 20px rgba(0,0,0,0.2);
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+font-size:18px;
 }
 
-/* CART */
+/* CART (BIG x2) */
 .cart{
 position:fixed;
-right:-450px;
+right:-800px;
 top:0;
-width:420px;
+width:700px;
 height:100%;
 background:white;
-box-shadow:-8px 0 30px rgba(0,0,0,0.2);
-padding:25px;
-transition:0.45s ease;
+box-shadow:-10px 0 40px rgba(0,0,0,0.25);
+padding:30px;
+transition:0.5s ease;
 z-index:1001;
 overflow:auto;
 }
@@ -148,60 +149,62 @@ overflow:auto;
 .close-cart{
 float:right;
 cursor:pointer;
-font-size:20px;
+font-size:22px;
 }
 
 .cart-item{
-margin:10px 0;
+margin:12px 0;
 border-bottom:1px solid #ddd;
-padding-bottom:8px;
+padding-bottom:10px;
+font-size:18px;
 }
 
 .qty{
 display:flex;
-gap:10px;
+gap:12px;
 align-items:center;
 margin-top:5px;
 }
 
 .qty button{
-padding:3px 8px;
+padding:5px 10px;
 cursor:pointer;
 }
 
 .total{
 font-weight:700;
-margin-top:15px;
+margin-top:18px;
+font-size:18px;
 }
 
 /* CHECKOUT */
 .checkout{
-margin-top:20px;
+margin-top:25px;
 }
 
 .checkout input{
 width:100%;
-padding:10px;
-margin:5px 0;
+padding:12px;
+margin:6px 0;
 border:1px solid #ccc;
-border-radius:5px;
+border-radius:6px;
 }
 
 .checkout-btn{
 background:black;
 color:white;
-padding:12px;
+padding:14px;
 text-align:center;
-margin-top:10px;
+margin-top:12px;
 cursor:pointer;
 }
 
 /* ABOUT */
 .about{
-max-width:800px;
+max-width:750px;
 margin:auto;
 text-align:center;
-font-size:20px;
+font-size:19px;
 line-height:1.8;
 color:#5a4a3f;
 }
@@ -258,7 +261,6 @@ Your Cart
 <input type="text" placeholder="Address">
 <div class="checkout-btn">Place Order</div>
 </div>
-
 </div>
 
 <!-- HERO -->
@@ -308,15 +310,11 @@ Your Cart
 <h2 class="title">About Us</h2>
 
 <div class="about">
-Plern Everyday Furniture creates spaces, not just furniture.<br><br>
+Plern Everyday Furniture creates spaces, not just furniture.  
+We believe that a well-designed home should feel calm, warm, and effortless in everyday life.  
 
-Inspired by simplicity and natural living,<br>
-our collections are designed to bring calm, warmth, and balance into your home.<br><br>
-
-We focus on clean lines, earth tones, and timeless materials —<br>
-so every piece feels effortless, yet meaningful.<br><br>
-
-Living well starts with the space around you.
+Inspired by simplicity and natural living, our collections are carefully crafted to balance beauty and function.  
+Every detail reflects our focus on timeless design, earth-tone aesthetics, and comfort you can truly live with.
 </div>
 </section>
 
