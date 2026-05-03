@@ -5,145 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Plern Everyday Furniture</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box;}
 body{
 font-family:'Prompt',sans-serif;
 background:#F8F4EE;
 color:#2f241c;
-overflow-x:hidden;
 }
 
-/* NAVBAR */
+/* NAV */
 header{
 position:fixed;
-top:0;
-left:0;
 width:100%;
-padding:18px 60px;
+top:0;
+background:white;
 display:flex;
 justify-content:space-between;
-align-items:center;
-background:rgba(255,255,255,0.75);
-backdrop-filter:blur(12px);
+padding:18px 60px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
 z-index:999;
-box-shadow:0 4px 12px rgba(0,0,0,0.05);
 }
-
-.logo{
-font-size:30px;
-font-weight:700;
-color:#6B4F3A;
-letter-spacing:1px;
-}
-
-nav a{
-text-decoration:none;
-color:#4a382d;
-margin-left:28px;
-font-weight:500;
-transition:.3s;
-}
-
-nav a:hover{
-color:#7A8450;
-}
+.logo{font-size:26px;font-weight:700;color:#6B4F3A;}
+nav a{margin-left:25px;text-decoration:none;color:#4a382d;}
 
 /* HERO */
 .hero{
 height:100vh;
-background:url('banner.jpg') center/cover no-repeat;
+background:url('banner.jpg') center/cover;
 display:flex;
 align-items:center;
 justify-content:center;
-text-align:center;
-padding:20px;
-position:relative;
-}
-
-.hero::before{
-content:'';
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.35);
-}
-
-.hero-content{
-position:relative;
-z-index:2;
 color:white;
-max-width:850px;
-animation:fadeUp 1s ease;
+text-align:center;
 }
-
-.hero h1{
-font-size:72px;
-line-height:1.1;
-margin-bottom:18px;
-}
-
-.hero p{
-font-size:24px;
-font-weight:300;
-margin-bottom:30px;
-}
-
-.btn{
-display:inline-block;
-padding:15px 38px;
-background:#E8DCCB;
-color:#3a2a1e;
-border-radius:40px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
-
-.btn:hover{
-transform:translateY(-4px);
-box-shadow:0 12px 25px rgba(0,0,0,0.12);
-}
+.hero h1{font-size:60px;}
 
 /* SECTION */
-section{
-padding:100px 60px;
-}
-
-.title{
-font-size:42px;
-text-align:center;
-margin-bottom:55px;
-color:#6B4F3A;
-}
+section{padding:100px 60px;}
+.title{text-align:center;font-size:36px;margin-bottom:50px;}
 
 /* PRODUCTS */
 .products{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-gap:28px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
 .card{
 background:white;
-border-radius:20px;
+border-radius:15px;
 overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,0.07);
-transition:.4s;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+transition:.3s;
 }
-
-.card:hover{
-transform:translateY(-10px);
-}
+.card:hover{transform:translateY(-5px);}
 
 .card img{
 width:100%;
@@ -151,72 +68,79 @@ height:260px;
 object-fit:cover;
 }
 
-.card-content{
-padding:22px;
-}
-
-.card h3{
-font-size:24px;
-margin-bottom:8px;
-}
-
-.card p{
-color:#666;
-}
+.card-content{padding:20px;}
 
 .price{
-font-size:24px;
 font-weight:700;
-margin-top:14px;
+margin-top:10px;
 color:#7A8450;
 }
 
-/* ABOUT */
-.about{
-max-width:850px;
-margin:auto;
+.btn{
+margin-top:12px;
+display:block;
+background:#7A8450;
+color:white;
 text-align:center;
-font-size:22px;
-line-height:1.8;
+padding:10px;
+border-radius:8px;
+cursor:pointer;
 }
 
-.features{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:24px;
-margin-top:50px;
+/* CART */
+.cart-icon{
+position:fixed;
+top:20px;
+right:20px;
+background:#7A8450;
+color:white;
+padding:10px 15px;
+border-radius:30px;
+cursor:pointer;
+z-index:1000;
 }
 
-.feature{
+.cart{
+position:fixed;
+right:-350px;
+top:0;
+width:320px;
+height:100%;
 background:white;
-padding:28px;
-border-radius:18px;
-text-align:center;
-box-shadow:0 8px 18px rgba(0,0,0,0.05);
-font-weight:500;
+box-shadow:-3px 0 10px rgba(0,0,0,0.1);
+padding:20px;
+transition:.3s;
+z-index:1001;
+overflow:auto;
+}
+
+.cart.open{right:0;}
+
+.cart h2{text-align:center;}
+
+.cart-item{
+display:flex;
+justify-content:space-between;
+margin:10px 0;
+border-bottom:1px solid #ddd;
+padding-bottom:5px;
+}
+
+.remove{
+color:red;
+cursor:pointer;
+}
+
+.total{
+font-weight:700;
+margin-top:15px;
 }
 
 /* CONTACT */
 .contact{
 text-align:center;
-font-size:22px;
+font-size:20px;
 line-height:2;
-}
-
-.line-btn{
-display:inline-block;
-margin-top:25px;
-padding:14px 30px;
-background:#7A8450;
-color:white;
-border-radius:35px;
-text-decoration:none;
-font-weight:600;
-transition:.3s;
-}
-
-.line-btn:hover{
-transform:translateY(-3px);
 }
 
 /* FOOTER */
@@ -224,49 +148,7 @@ footer{
 background:#6B4F3A;
 color:white;
 text-align:center;
-padding:30px;
-font-size:15px;
-}
-
-/* ANIMATION */
-@keyframes fadeUp{
-from{
-opacity:0;
-transform:translateY(40px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* MOBILE */
-@media(max-width:768px){
-
-header{
-padding:15px 20px;
-}
-
-nav{
-display:none;
-}
-
-.hero h1{
-font-size:42px;
-}
-
-.hero p{
-font-size:18px;
-}
-
-section{
-padding:80px 20px;
-}
-
-.title{
-font-size:32px;
-}
-
+padding:25px;
 }
 </style>
 </head>
@@ -275,36 +157,40 @@ font-size:32px;
 
 <header>
 <div class="logo">Plern</div>
-
 <nav>
-<a href="#home">หน้าแรก</a>
-<a href="#products">สินค้า</a>
-<a href="#about">เกี่ยวกับเรา</a>
-<a href="#contact">ติดต่อ</a>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#contact">Contact</a>
 </nav>
 </header>
 
+<div class="cart-icon" onclick="toggleCart()">
+🛒 (<span id="count">0</span>)
+</div>
+
+<div class="cart" id="cart">
+<h2>Your Cart</h2>
+<div id="cart-items"></div>
+<div class="total" id="total">Total: $0</div>
+</div>
+
 <!-- HERO -->
 <section class="hero" id="home">
-<div class="hero-content">
-<h1>Everyday Furniture<br>For Better Living</h1>
-<p>เฟอร์นิเจอร์อบอุ่น ดีไซน์เรียบหรู สำหรับทุกวันของคุณ</p>
-<a href="#products" class="btn">ดูสินค้า</a>
-</div>
+<h1>Everyday Furniture For Better Living</h1>
 </section>
 
 <!-- PRODUCTS -->
 <section id="products">
-<h2 class="title">สินค้าแนะนำ</h2>
+<h2 class="title">Products</h2>
 
 <div class="products">
 
 <div class="card">
 <img src="product1.jpg">
 <div class="card-content">
-<h3>Picture</h3>
-<p>The man thinking</p>
-<div class="price">25,000฿</div>
+<h3>Wall Frame</h3>
+<div class="price">$120</div>
+<div class="btn" onclick="addToCart('Wall Frame',120)">Add to Cart</div>
 </div>
 </div>
 
@@ -312,8 +198,8 @@ font-size:32px;
 <img src="product2.jpg">
 <div class="card-content">
 <h3>Oak Desk</h3>
-<p>โต๊ะทำงานไม้แท้ เรียบหรู</p>
-<div class="price">฿4,590</div>
+<div class="price">$140</div>
+<div class="btn" onclick="addToCart('Oak Desk',140)">Add to Cart</div>
 </div>
 </div>
 
@@ -321,8 +207,8 @@ font-size:32px;
 <img src="product3.jpg">
 <div class="card-content">
 <h3>Warm Bed</h3>
-<p>เตียงไม้ Earth Tone</p>
-<div class="price">฿9,990</div>
+<div class="price">$300</div>
+<div class="btn" onclick="addToCart('Warm Bed',300)">Add to Cart</div>
 </div>
 </div>
 
@@ -330,60 +216,61 @@ font-size:32px;
 <img src="product4.jpg">
 <div class="card-content">
 <h3>Storage Shelf</h3>
-<p>ชั้นวางของเรียบง่าย</p>
-<div class="price">฿2,490</div>
+<div class="price">$80</div>
+<div class="btn" onclick="addToCart('Storage Shelf',80)">Add to Cart</div>
 </div>
 </div>
 
-</div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-<h2 class="title">เกี่ยวกับเรา</h2>
-
-<div class="about">
-Plern Everyday Furniture สร้างเฟอร์นิเจอร์ที่ออกแบบมาเพื่อชีวิตจริง  
-เรียบง่าย ใช้งานได้ทุกวัน และทำให้บ้านน่าอยู่มากขึ้น
-</div>
-
-<div class="features">
-<div class="feature">วัสดุคุณภาพสูง</div>
-<div class="feature">ดีไซน์ทันสมัย</div>
-<div class="feature">ส่งทั่วประเทศ</div>
-<div class="feature">บริการใส่ใจ</div>
 </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-<h2 class="title">ติดต่อเรา</h2>
-
-<div class="contact">
-LINE : @plern.everyday <br>
-Instagram : plern.everyday
-<br>
-<a href="#" class="line-btn">แชทสั่งซื้อ</a>
-</div>
-</section>
-
-<footer>
-© 2026 Plern Everyday Furniture
-</footer>
-
-</body>
-</html>
-
+<h2 class="title">Contact Us</h2>
 <div class="contact">
 LINE: @plern.everyday <br>
 Instagram: @plern.everday
 </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
 © 2026 Plern Everyday Furniture
 </footer>
+
+<script>
+let cart=[];
+let total=0;
+
+function toggleCart(){
+document.getElementById("cart").classList.toggle("open");
+}
+
+function addToCart(name,price){
+cart.push({name,price});
+total+=price;
+renderCart();
+}
+
+function removeItem(index){
+total-=cart[index].price;
+cart.splice(index,1);
+renderCart();
+}
+
+function renderCart(){
+let html='';
+cart.forEach((item,i)=>{
+html+=`<div class="cart-item">
+${item.name} - $${item.price}
+<span class="remove" onclick="removeItem(${i})">x</span>
+</div>`;
+});
+
+document.getElementById("cart-items").innerHTML=html;
+document.getElementById("total").innerText="Total: $"+total;
+document.getElementById("count").innerText=cart.length;
+}
+</script>
 
 </body>
 </html>
