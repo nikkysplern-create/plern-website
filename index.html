@@ -280,4 +280,41 @@ e.stopPropagation();
 let slides=btn.parentElement.querySelectorAll(".slide");
 let i=[...slides].findIndex(s=>s.classList.contains("active"));
 slides[i].classList.remove("active");
-slides[(i+1)%slides.length
+slides[(i+1)%slides.length].classList.add("active");
+}
+
+function prevSlide(e,btn){
+e.stopPropagation();
+let slides=btn.parentElement.querySelectorAll(".slide");
+let i=[...slides].findIndex(s=>s.classList.contains("active"));
+slides[i].classList.remove("active");
+slides[(i-1+slides.length)%slides.length].classList.add("active");
+}
+
+/* PRODUCT MODAL */
+function openProduct(name,price,img){
+currentProduct={name,price};
+document.getElementById("modal").style.display="flex";
+document.getElementById("modal-title").innerText=name;
+document.getElementById("modal-price").innerText=price;
+document.getElementById("modal-img").src=img;
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+/* ZOOM */
+function zoomImage(){
+document.getElementById("zoom").style.display="flex";
+document.getElementById("zoom-img").src=
+document.getElementById("modal-img").src;
+}
+
+function closeZoom(){
+document.getElementById("zoom").style.display="none";
+}
+</script>
+
+</body>
+</html>
