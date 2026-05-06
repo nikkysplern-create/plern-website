@@ -25,8 +25,8 @@ background:white;
 display:flex;
 justify-content:space-between;
 padding:18px 60px;
-box-shadow:0 3px 10px rgba(0,0,0,0.05);
 z-index:999;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
 }
 
 .logo{font-size:26px;font-weight:700;color:#6B4F3A;}
@@ -40,51 +40,53 @@ font-weight:500;
 
 /* HERO */
 .hero{
-height:100vh;
-background:url('banner.jpg') center/cover;
+height:90vh;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-position:relative;
-}
-
-.hero::before{
-content:'';
-position:absolute;
-inset:0;
-background:rgba(248,244,238,0.85);
+background:#EFE7DC;
 }
 
 .hero h1{
-font-size:60px;
+font-size:50px;
 color:#3B2A1E;
-position:relative;
-z-index:2;
 }
 
 /* SECTION */
 section{padding:70px 60px;}
 
-.title{
-text-align:center;
-font-size:34px;
-margin-bottom:30px;
+.category-title{
+font-size:30px;
+margin-bottom:25px;
+color:#6B4F3A;
 }
 
-/* PRODUCTS */
+/* PRODUCTS VERTICAL */
 .products{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+display:flex;
+flex-direction:column;
 gap:25px;
 }
 
-/* SLIDER */
-.slider{
-position:relative;
-height:260px;
+/* CARD */
+.card{
+display:flex;
+background:white;
+border-radius:15px;
 overflow:hidden;
-border-radius:12px;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+transition:.3s;
+}
+
+.card:hover{transform:translateY(-5px);}
+
+/* IMAGE SLIDER */
+.slider{
+width:320px;
+height:220px;
+position:relative;
+overflow:hidden;
 }
 
 .slide{
@@ -93,7 +95,7 @@ width:100%;
 height:100%;
 object-fit:cover;
 opacity:0;
-transition:0.5s;
+transition:.4s;
 }
 
 .slide.active{opacity:1;}
@@ -105,42 +107,37 @@ transform:translateY(-50%);
 background:rgba(0,0,0,0.4);
 color:white;
 border:none;
-padding:8px 12px;
 cursor:pointer;
+padding:6px 10px;
 border-radius:50%;
 }
 
 .prev{left:10px;}
 .next{right:10px;}
 
-.prev:hover,.next:hover{background:#7A8450;}
-
-/* CARD */
-.card{
-background:white;
-border-radius:15px;
-overflow:hidden;
-box-shadow:0 8px 20px rgba(0,0,0,0.08);
-transition:.3s;
+/* CONTENT */
+.card-content{
+padding:20px;
+flex:1;
 }
 
-.card:hover{transform:translateY(-6px);}
-
-.card-content{padding:20px;}
+.card-content h3{
+font-size:22px;
+}
 
 .price{
-font-weight:700;
 margin-top:10px;
+font-weight:700;
 color:#7A8450;
+font-size:18px;
 }
 
 .btn{
 margin-top:12px;
-display:block;
 background:#7A8450;
 color:white;
-text-align:center;
 padding:10px;
+text-align:center;
 border-radius:8px;
 cursor:pointer;
 }
@@ -152,25 +149,25 @@ bottom:30px;
 right:30px;
 background:#7A8450;
 color:white;
-padding:16px 24px;
+padding:16px 22px;
 border-radius:40px;
 cursor:pointer;
 z-index:1000;
 box-shadow:0 10px 25px rgba(0,0,0,0.25);
 }
 
-/* CART (BIG) */
+/* CART PANEL */
 .cart{
 position:fixed;
-right:-800px;
+right:-700px;
 top:0;
-width:700px;
+width:600px;
 height:100%;
 background:white;
-box-shadow:-10px 0 40px rgba(0,0,0,0.25);
-padding:30px;
-transition:0.5s;
+padding:25px;
+transition:.4s;
 z-index:1001;
+box-shadow:-10px 0 40px rgba(0,0,0,0.25);
 overflow:auto;
 }
 
@@ -183,9 +180,9 @@ font-size:20px;
 }
 
 .cart-item{
-margin:12px 0;
+margin:10px 0;
 border-bottom:1px solid #ddd;
-padding-bottom:8px;
+padding-bottom:6px;
 }
 
 .total{
@@ -195,7 +192,7 @@ font-weight:700;
 
 /* ABOUT */
 .about{
-max-width:750px;
+max-width:800px;
 margin:auto;
 text-align:center;
 line-height:1.8;
@@ -223,8 +220,9 @@ padding:25px;
 <header>
 <div class="logo">Plern</div>
 <nav>
-<a href="#home">Home</a>
-<a href="#products">Products</a>
+<a href="#living">Living</a>
+<a href="#bedroom">Bedroom</a>
+<a href="#decor">Decor</a>
 <a href="#about">About</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -235,29 +233,68 @@ padding:25px;
 
 <div class="cart" id="cart">
 <h2>Your Cart <span class="close-cart" onclick="toggleCart()">✕</span></h2>
-
 <div id="cart-items"></div>
-
 <div class="total" id="total">Total: $0</div>
 </div>
 
 <!-- HERO -->
-<section class="hero" id="home">
+<section class="hero">
 <h1>Everyday Furniture For Better Living</h1>
 </section>
 
-<!-- PRODUCTS -->
-<section id="products">
-<h2 class="title">Products</h2>
-
+<!-- LIVING -->
+<section id="living">
+<h2 class="category-title">Living Room</h2>
 <div class="products">
 
-<!-- PRODUCT 1 -->
 <div class="card">
 <div class="slider">
 <img src="product1.jpg" class="slide active">
 <img src="product1-2.jpg" class="slide">
-<img src="product1-3.jpg" class="slide">
+<button class="prev" onclick="prevSlide(this)">‹</button>
+<button class="next" onclick="nextSlide(this)">›</button>
+</div>
+
+<div class="card-content">
+<h3>Modern Sofa</h3>
+<div class="price">$300</div>
+<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- BEDROOM -->
+<section id="bedroom">
+<h2 class="category-title">Bedroom</h2>
+<div class="products">
+
+<div class="card">
+<div class="slider">
+<img src="product2.jpg" class="slide active">
+<button class="prev" onclick="prevSlide(this)">‹</button>
+<button class="next" onclick="nextSlide(this)">›</button>
+</div>
+
+<div class="card-content">
+<h3>Wood Bed</h3>
+<div class="price">$500</div>
+<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- DECOR -->
+<section id="decor">
+<h2 class="category-title">Decor</h2>
+<div class="products">
+
+<div class="card">
+<div class="slider">
+<img src="product3.jpg" class="slide active">
 <button class="prev" onclick="prevSlide(this)">‹</button>
 <button class="next" onclick="nextSlide(this)">›</button>
 </div>
@@ -269,39 +306,22 @@ padding:25px;
 </div>
 </div>
 
-<!-- PRODUCT 2 -->
-<div class="card">
-<div class="slider">
-<img src="product2.jpg" class="slide active">
-<img src="product2-2.jpg" class="slide">
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Oak Desk</h3>
-<div class="price">$240</div>
-<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
-</div>
-</div>
-
 </div>
 </section>
 
 <!-- ABOUT -->
 <section id="about">
-<h2 class="title">About Us</h2>
+<h2 class="category-title">About Us</h2>
 <div class="about">
 Plern Everyday Furniture creates spaces, not just furniture.  
 Inspired by simplicity and natural living, we design pieces that bring warmth, calm, and balance into your home.  
-Our collections focus on timeless materials, earth-tone aesthetics, and everyday functionality —  
-so your space feels effortless, beautiful, and truly livable.
+Our collections focus on timeless materials, earth-tone aesthetics, and everyday functionality — making your space feel effortless and truly livable.
 </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-<h2 class="title">Contact</h2>
+<h2 class="category-title">Contact</h2>
 <div class="contact">
 LINE: @plern.everyday <br>
 Instagram: @plern.everday
@@ -345,7 +365,6 @@ document.getElementById("total").innerText="Total: $"+total;
 document.getElementById("count").innerText=cart.length;
 }
 
-/* SLIDER */
 function nextSlide(btn){
 let slides=btn.parentElement.querySelectorAll(".slide");
 let i=[...slides].findIndex(s=>s.classList.contains("active"));
