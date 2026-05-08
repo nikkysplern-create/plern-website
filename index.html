@@ -3,386 +3,394 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Plern Furniture</title>
+<title>Plern Everyday Furniture</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
 font-family:'Prompt',sans-serif;
 background:#F8F4EE;
-padding:30px;
+color:#2f241c;
 }
 
-/* TITLE */
+/* NAV */
+header{
+position:fixed;
+width:100%;
+top:0;
+background:white;
+display:flex;
+justify-content:space-between;
+padding:18px 60px;
+box-shadow:0 3px 10px rgba(0,0,0,0.05);
+z-index:999;
+}
+
+.logo{font-size:26px;font-weight:700;color:#6B4F3A;}
+
+nav a{
+margin-left:25px;
+text-decoration:none;
+color:#4a382d;
+}
+
+/* HERO (CREAM SOFT) */
+.hero{
+height:100vh;
+background:url('banner.jpg') center/cover;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+inset:0;
+background:rgba(248,244,238,0.85); /* cream soft overlay */
+}
+
+.hero h1{
+font-size:60px;
+color:#3B2A1E;
+position:relative;
+z-index:2;
+}
+
+/* SECTION */
+section{padding:80px 60px;} /* ลดช่องว่างรวม */
+
 .title{
 text-align:center;
 font-size:34px;
 margin-bottom:35px;
-color:#3B2A1E;
 }
 
-/* GRID 5 ITEMS */
+/* PRODUCTS */
 .products{
 display:grid;
-grid-template-columns:repeat(5,1fr);
-gap:14px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-/* RESPONSIVE */
-@media(max-width:1100px){
-.products{
-grid-template-columns:repeat(3,1fr);
-}
-}
-
-@media(max-width:700px){
-.products{
-grid-template-columns:repeat(2,1fr);
-}
-}
-
-/* CARD */
 .card{
 background:white;
-border-radius:12px;
+border-radius:15px;
 overflow:hidden;
-box-shadow:0 3px 10px rgba(0,0,0,0.06);
-transition:0.25s;
+box-shadow:0 5px 15px rgba(0,0,0,0.08);
+transition:.3s;
 }
 
-.card:hover{
-transform:translateY(-3px);
-}
+.card:hover{transform:translateY(-5px);}
 
-/* IMAGE */
-.slider{
-position:relative;
-height:150px;
-overflow:hidden;
-}
-
-.slide{
-position:absolute;
+.card img{
 width:100%;
-height:100%;
+height:260px;
 object-fit:cover;
-opacity:0;
-transition:0.4s;
-cursor:pointer;
 }
 
-.slide.active{
-opacity:1;
-}
-
-/* BUTTON */
-.prev,
-.next{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(0,0,0,0.45);
-border:none;
-color:white;
-font-size:12px;
-padding:4px 8px;
-cursor:pointer;
-border-radius:50%;
-}
-
-.prev{
-left:5px;
-}
-
-.next{
-right:5px;
-}
-
-/* CONTENT */
-.card-content{
-padding:10px;
-}
-
-.card-content h3{
-font-size:14px;
-margin-bottom:5px;
-}
+.card-content{padding:20px;}
 
 .price{
-font-size:13px;
 font-weight:700;
+margin-top:10px;
 color:#7A8450;
-margin-bottom:8px;
 }
 
 .btn{
+margin-top:12px;
+display:block;
 background:#7A8450;
 color:white;
-font-size:12px;
-padding:8px;
 text-align:center;
+padding:10px;
 border-radius:8px;
 cursor:pointer;
-transition:0.3s;
+box-shadow:0 6px 15px rgba(0,0,0,0.15);
 }
 
-.btn:hover{
-background:#667042;
-}
-
-/* POPUP IMAGE */
-.popup{
-display:none;
+/* CART BUTTON */
+.cart-icon{
 position:fixed;
-z-index:9999;
-left:0;
-top:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-}
-
-.popup img{
-max-width:90%;
-max-height:90%;
-border-radius:10px;
-}
-
-.popup span{
-position:absolute;
-top:25px;
-right:35px;
-font-size:40px;
+bottom:30px;
+right:30px;
+background:#7A8450;
 color:white;
+padding:14px 22px;
+border-radius:30px;
+cursor:pointer;
+z-index:1000;
+box-shadow:0 10px 25px rgba(0,0,0,0.25);
+font-size:18px;
+}
+
+/* CART (BIG x2) */
+.cart{
+position:fixed;
+right:-800px;
+top:0;
+width:700px;
+height:100%;
+background:white;
+box-shadow:-10px 0 40px rgba(0,0,0,0.25);
+padding:30px;
+transition:0.5s ease;
+z-index:1001;
+overflow:auto;
+}
+
+.cart.open{right:0;}
+
+.close-cart{
+float:right;
+cursor:pointer;
+font-size:22px;
+}
+
+.cart-item{
+margin:12px 0;
+border-bottom:1px solid #ddd;
+padding-bottom:10px;
+font-size:18px;
+}
+
+.qty{
+display:flex;
+gap:12px;
+align-items:center;
+margin-top:5px;
+}
+
+.qty button{
+padding:5px 10px;
 cursor:pointer;
 }
 
+.total{
+font-weight:700;
+margin-top:18px;
+font-size:18px;
+}
+
+/* CHECKOUT */
+.checkout{
+margin-top:25px;
+}
+
+.checkout input{
+width:100%;
+padding:12px;
+margin:6px 0;
+border:1px solid #ccc;
+border-radius:6px;
+}
+
+.checkout-btn{
+background:black;
+color:white;
+padding:14px;
+text-align:center;
+margin-top:12px;
+cursor:pointer;
+}
+
+/* ABOUT */
+.about{
+max-width:750px;
+margin:auto;
+text-align:center;
+font-size:19px;
+line-height:1.8;
+color:#5a4a3f;
+}
+
+/* CONTACT */
+.contact{
+text-align:center;
+font-size:20px;
+line-height:2;
+}
+
+/* FOOTER */
+footer{
+background:#6B4F3A;
+color:white;
+text-align:center;
+padding:25px;
+}
 </style>
 </head>
 
 <body>
 
-<h1 class="title">Plern Everyday Furniture</h1>
+<header>
+<div class="logo">Plern</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#products">Products</a>
+<a href="#about">About Us</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<!-- CART BUTTON -->
+<div class="cart-icon" onclick="toggleCart()">
+🛒 (<span id="count">0</span>)
+</div>
+
+<!-- CART -->
+<div class="cart" id="cart">
+<h2>
+Your Cart
+<span class="close-cart" onclick="toggleCart()">✕</span>
+</h2>
+
+<div id="cart-items"></div>
+
+<div class="total" id="total">Subtotal: $0</div>
+<div class="total" id="shipping">Shipping: $5</div>
+<div class="total" id="grand">Total: $0</div>
+
+<div class="checkout">
+<input type="text" placeholder="Full Name">
+<input type="text" placeholder="Address">
+<div class="checkout-btn">Place Order</div>
+</div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<h1>Everyday Furniture For Better Living</h1>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+<h2 class="title">Products</h2>
 
 <div class="products">
 
-<!-- CARD 1 -->
 <div class="card">
-<div class="slider">
-<img src="product1.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product1-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
+<img src="product1.jpg">
 <div class="card-content">
 <h3>Wall Frame</h3>
 <div class="price">$120</div>
-<div class="btn">Add to Cart</div>
+<div class="btn" onclick="addToCart('Wall Frame',120)">Add to Cart</div>
 </div>
 </div>
 
-<!-- CARD 2 -->
 <div class="card">
-<div class="slider">
-<img src="product2.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product2-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
+<img src="product2.jpg">
 <div class="card-content">
 <h3>Oak Desk</h3>
 <div class="price">$140</div>
-<div class="btn">Add to Cart</div>
+<div class="btn" onclick="addToCart('Oak Desk',140)">Add to Cart</div>
 </div>
 </div>
 
-<!-- CARD 3 -->
 <div class="card">
-<div class="slider">
-<img src="product3.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product3-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
+<img src="product3.jpg">
 <div class="card-content">
 <h3>Warm Bed</h3>
 <div class="price">$300</div>
-<div class="btn">Add to Cart</div>
-</div>
-</div>
-
-<!-- CARD 4 -->
-<div class="card">
-<div class="slider">
-<img src="product4.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product4-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Soft Sofa</h3>
-<div class="price">$260</div>
-<div class="btn">Add to Cart</div>
-</div>
-</div>
-
-<!-- CARD 5 -->
-<div class="card">
-<div class="slider">
-<img src="product5.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product5-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Modern Lamp</h3>
-<div class="price">$90</div>
-<div class="btn">Add to Cart</div>
-</div>
-</div>
-
-<!-- CARD 6 -->
-<div class="card">
-<div class="slider">
-<img src="product6.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product6-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Classic Chair</h3>
-<div class="price">$80</div>
-<div class="btn">Add to Cart</div>
-</div>
-</div>
-
-<!-- CARD 7 -->
-<div class="card">
-<div class="slider">
-<img src="product7.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product7-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Wood Shelf</h3>
-<div class="price">$160</div>
-<div class="btn">Add to Cart</div>
-</div>
-</div>
-
-<!-- CARD 8 -->
-<div class="card">
-<div class="slider">
-<img src="product8.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product8-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Mini Table</h3>
-<div class="price">$110</div>
-<div class="btn">Add to Cart</div>
-</div>
-</div>
-
-<!-- CARD 9 -->
-<div class="card">
-<div class="slider">
-<img src="product9.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product9-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Cozy Cabinet</h3>
-<div class="price">$220</div>
-<div class="btn">Add to Cart</div>
+<div class="btn" onclick="addToCart('Warm Bed',300)">Add to Cart</div>
 </div>
 </div>
 
 </div>
+</section>
 
-<!-- POPUP -->
-<div class="popup" id="popup">
-<span onclick="closePopup()">×</span>
-<img id="popup-img">
+<!-- ABOUT -->
+<section id="about">
+<h2 class="title">About Us</h2>
+
+<div class="about">
+Plern Everyday Furniture creates spaces, not just furniture.  
+We believe that a well-designed home should feel calm, warm, and effortless in everyday life.  
+
+Inspired by simplicity and natural living, our collections are carefully crafted to balance beauty and function.  
+Every detail reflects our focus on timeless design, earth-tone aesthetics, and comfort you can truly live with.
 </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2 class="title">Contact</h2>
+<div class="contact">
+LINE: @plern.everyday <br>
+Instagram: @plern.everday
+</div>
+</section>
+
+<footer>
+© 2026 Plern Everyday Furniture
+</footer>
 
 <script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let shipping = 5;
 
-/* NEXT IMAGE */
-function nextSlide(btn){
-
-let slides = btn.parentElement.querySelectorAll(".slide");
-
-let i = [...slides].findIndex(
-s => s.classList.contains("active")
-);
-
-slides[i].classList.remove("active");
-
-slides[(i+1)%slides.length]
-.classList.add("active");
+function toggleCart(){
+document.getElementById("cart").classList.toggle("open");
 }
 
-/* PREV IMAGE */
-function prevSlide(btn){
-
-let slides = btn.parentElement.querySelectorAll(".slide");
-
-let i = [...slides].findIndex(
-s => s.classList.contains("active")
-);
-
-slides[i].classList.remove("active");
-
-slides[(i-1+slides.length)%slides.length]
-.classList.add("active");
+function addToCart(name, price){
+let item = cart.find(i => i.name === name);
+if(item){
+item.qty++;
+}else{
+cart.push({name, price, qty:1});
+}
+saveCart();
+renderCart();
+document.getElementById("cart").classList.add("open");
 }
 
-/* OPEN POPUP */
-function openPopup(src){
-
-document.getElementById("popup").style.display="flex";
-
-document.getElementById("popup-img").src=src;
+function changeQty(index, delta){
+cart[index].qty += delta;
+if(cart[index].qty <= 0){
+cart.splice(index,1);
+}
+saveCart();
+renderCart();
 }
 
-/* CLOSE POPUP */
-function closePopup(){
-
-document.getElementById("popup").style.display="none";
+function saveCart(){
+localStorage.setItem("cart", JSON.stringify(cart));
 }
 
+function renderCart(){
+let html='';
+let subtotal=0;
+
+cart.forEach((item,i)=>{
+subtotal += item.price * item.qty;
+html+=`
+<div class="cart-item">
+${item.name} - $${item.price}
+<div class="qty">
+<button onclick="changeQty(${i},-1)">-</button>
+<span>${item.qty}</span>
+<button onclick="changeQty(${i},1)">+</button>
+</div>
+</div>
+`;
+});
+
+let total = subtotal + shipping;
+
+document.getElementById("cart-items").innerHTML = html;
+document.getElementById("total").innerText = "Subtotal: $" + subtotal;
+document.getElementById("shipping").innerText = "Shipping: $" + shipping;
+document.getElementById("grand").innerText = "Total: $" + total;
+document.getElementById("count").innerText = cart.length;
+}
+
+renderCart();
 </script>
 
 </body>
