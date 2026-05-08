@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Plern Everyday Furniture</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plern Furniture</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -17,100 +18,34 @@ box-sizing:border-box;
 body{
 font-family:'Prompt',sans-serif;
 background:#F8F4EE;
-color:#2f241c;
+padding:40px;
 }
 
-/* NAVBAR */
-header{
-position:fixed;
-top:0;
-width:100%;
-background:white;
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:18px 60px;
-box-shadow:0 3px 10px rgba(0,0,0,0.05);
-z-index:1000;
-}
-
-.logo{
-font-size:28px;
-font-weight:700;
-color:#6B4F3A;
-}
-
-nav a{
-margin-left:25px;
-text-decoration:none;
-color:#4a382d;
-font-weight:500;
-}
-
-/* HERO */
-.hero{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:#EFE7DC;
-padding:20px;
-}
-
-.hero h1{
-font-size:58px;
-max-width:800px;
-color:#3B2A1E;
-}
-
-/* SECTION */
-section{
-padding:90px 60px;
-}
-
-.title{
-text-align:center;
-font-size:38px;
-margin-bottom:45px;
-}
-
-/* PRODUCTS GRID */
+/* GRID */
 .products{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:30px;
-}
-
-@media(max-width:1000px){
-.products{
-grid-template-columns:repeat(2,1fr);
-}
-}
-
-@media(max-width:700px){
-.products{
-grid-template-columns:1fr;
-}
+gap:18px;
 }
 
 /* CARD */
 .card{
 background:white;
-border-radius:18px;
+border-radius:12px;
 overflow:hidden;
-box-shadow:0 5px 18px rgba(0,0,0,0.08);
+box-shadow:0 3px 10px rgba(0,0,0,0.08);
 transition:0.3s;
 }
 
 .card:hover{
-transform:translateY(-6px);
+transform:translateY(-3px);
 }
 
-/* IMAGE SLIDER */
+/* SMALL IMAGE BOX */
 .slider{
 position:relative;
-height:340px;
+width:100%;
+height:140px;
 overflow:hidden;
 }
 
@@ -121,13 +56,14 @@ height:100%;
 object-fit:cover;
 opacity:0;
 transition:0.4s;
+cursor:pointer;
 }
 
 .slide.active{
 opacity:1;
 }
 
-/* BUTTONS */
+/* BUTTON */
 .prev,
 .next{
 position:absolute;
@@ -136,174 +72,43 @@ transform:translateY(-50%);
 background:rgba(0,0,0,0.4);
 border:none;
 color:white;
-font-size:18px;
-padding:8px 12px;
+padding:4px 8px;
 cursor:pointer;
 border-radius:50%;
+font-size:14px;
 }
 
-.prev{
-left:10px;
-}
-
-.next{
-right:10px;
-}
+.prev{left:6px;}
+.next{right:6px;}
 
 /* CONTENT */
 .card-content{
-padding:22px;
+padding:12px;
 }
 
 .card-content h3{
-margin-bottom:8px;
+font-size:15px;
+margin-bottom:6px;
 }
 
 .price{
-font-size:20px;
+font-size:14px;
 font-weight:700;
 color:#7A8450;
-margin-bottom:15px;
 }
 
-.btn{
-background:#7A8450;
-color:white;
-padding:12px;
-border-radius:10px;
-text-align:center;
-cursor:pointer;
-transition:0.3s;
-}
-
-.btn:hover{
-background:#667042;
-}
-
-/* CART */
-.cart-icon{
-position:fixed;
-right:30px;
-bottom:30px;
-background:#7A8450;
-color:white;
-padding:15px 22px;
-border-radius:30px;
-cursor:pointer;
-z-index:999;
-font-weight:600;
-}
-
-.cart{
-position:fixed;
-top:0;
-right:-450px;
-width:400px;
-height:100%;
-background:white;
-padding:25px;
-transition:0.4s;
-z-index:1001;
-box-shadow:-5px 0 20px rgba(0,0,0,0.2);
-overflow:auto;
-}
-
-.cart.open{
-right:0;
-}
-
-.close-cart{
-float:right;
-cursor:pointer;
-font-size:22px;
-}
-
-.cart-item{
-padding:12px 0;
-border-bottom:1px solid #ddd;
-}
-
-.total{
-margin-top:18px;
-font-size:22px;
-font-weight:700;
-}
-
-/* ABOUT */
-.about{
-max-width:850px;
-margin:auto;
-text-align:center;
-line-height:1.9;
-font-size:18px;
-}
-
-/* CONTACT */
-.contact{
-text-align:center;
-line-height:2.2;
-font-size:18px;
-}
-
-/* FOOTER */
-footer{
-background:#6B4F3A;
-color:white;
-text-align:center;
-padding:30px;
-}
 </style>
 </head>
 
 <body>
-
-<!-- NAVBAR -->
-<header>
-<div class="logo">Plern</div>
-
-<nav>
-<a href="#home">Home</a>
-<a href="#products">Products</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-</header>
-
-<!-- CART -->
-<div class="cart-icon" onclick="toggleCart()">
-🛒 Cart (<span id="count">0</span>)
-</div>
-
-<div class="cart" id="cart">
-<h2>
-Your Cart
-<span class="close-cart" onclick="toggleCart()">✕</span>
-</h2>
-
-<div id="cart-items"></div>
-
-<div class="total" id="total">
-Total: $0
-</div>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="home">
-<h1>Everyday Furniture For Better Living</h1>
-</section>
-
-<!-- PRODUCTS -->
-<section id="products">
-
-<h2 class="title">Our Products</h2>
 
 <div class="products">
 
 <!-- 1 -->
 <div class="card">
 <div class="slider">
-<img src="product1.jpg" class="slide active">
-<img src="product1-2.jpg" class="slide">
+<img src="product1.jpg" class="slide active" onclick="openImage(this.src)">
+<img src="product1-2.jpg" class="slide" onclick="openImage(this.src)">
 
 <button class="prev" onclick="prevSlide(this)">‹</button>
 <button class="next" onclick="nextSlide(this)">›</button>
@@ -312,15 +117,14 @@ Total: $0
 <div class="card-content">
 <h3>Wall Frame</h3>
 <div class="price">$120</div>
-<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
 </div>
 </div>
 
 <!-- 2 -->
 <div class="card">
 <div class="slider">
-<img src="product2.jpg" class="slide active">
-<img src="product2-2.jpg" class="slide">
+<img src="product2.jpg" class="slide active" onclick="openImage(this.src)">
+<img src="product2-2.jpg" class="slide" onclick="openImage(this.src)">
 
 <button class="prev" onclick="prevSlide(this)">‹</button>
 <button class="next" onclick="nextSlide(this)">›</button>
@@ -329,15 +133,14 @@ Total: $0
 <div class="card-content">
 <h3>Oak Desk</h3>
 <div class="price">$140</div>
-<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
 </div>
 </div>
 
 <!-- 3 -->
 <div class="card">
 <div class="slider">
-<img src="product3.jpg" class="slide active">
-<img src="product3-2.jpg" class="slide">
+<img src="product3.jpg" class="slide active" onclick="openImage(this.src)">
+<img src="product3-2.jpg" class="slide" onclick="openImage(this.src)">
 
 <button class="prev" onclick="prevSlide(this)">‹</button>
 <button class="next" onclick="nextSlide(this)">›</button>
@@ -346,15 +149,14 @@ Total: $0
 <div class="card-content">
 <h3>Warm Bed</h3>
 <div class="price">$300</div>
-<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
 </div>
 </div>
 
 <!-- 4 -->
 <div class="card">
 <div class="slider">
-<img src="product4.jpg" class="slide active">
-<img src="product4-2.jpg" class="slide">
+<img src="product4.jpg" class="slide active" onclick="openImage(this.src)">
+<img src="product4-2.jpg" class="slide" onclick="openImage(this.src)">
 
 <button class="prev" onclick="prevSlide(this)">‹</button>
 <button class="next" onclick="nextSlide(this)">›</button>
@@ -363,15 +165,14 @@ Total: $0
 <div class="card-content">
 <h3>Soft Sofa</h3>
 <div class="price">$260</div>
-<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
 </div>
 </div>
 
 <!-- 5 -->
 <div class="card">
 <div class="slider">
-<img src="product5.jpg" class="slide active">
-<img src="product5-2.jpg" class="slide">
+<img src="product5.jpg" class="slide active" onclick="openImage(this.src)">
+<img src="product5-2.jpg" class="slide" onclick="openImage(this.src)">
 
 <button class="prev" onclick="prevSlide(this)">‹</button>
 <button class="next" onclick="nextSlide(this)">›</button>
@@ -380,15 +181,14 @@ Total: $0
 <div class="card-content">
 <h3>Modern Lamp</h3>
 <div class="price">$90</div>
-<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
 </div>
 </div>
 
 <!-- 6 -->
 <div class="card">
 <div class="slider">
-<img src="product6.jpg" class="slide active">
-<img src="product6-2.jpg" class="slide">
+<img src="product6.jpg" class="slide active" onclick="openImage(this.src)">
+<img src="product6-2.jpg" class="slide" onclick="openImage(this.src)">
 
 <button class="prev" onclick="prevSlide(this)">‹</button>
 <button class="next" onclick="nextSlide(this)">›</button>
@@ -397,15 +197,14 @@ Total: $0
 <div class="card-content">
 <h3>Classic Chair</h3>
 <div class="price">$80</div>
-<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
 </div>
 </div>
 
 <!-- 7 -->
 <div class="card">
 <div class="slider">
-<img src="product7.jpg" class="slide active">
-<img src="product7-2.jpg" class="slide">
+<img src="product7.jpg" class="slide active" onclick="openImage(this.src)">
+<img src="product7-2.jpg" class="slide" onclick="openImage(this.src)">
 
 <button class="prev" onclick="prevSlide(this)">‹</button>
 <button class="next" onclick="nextSlide(this)">›</button>
@@ -414,15 +213,14 @@ Total: $0
 <div class="card-content">
 <h3>Wood Shelf</h3>
 <div class="price">$160</div>
-<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
 </div>
 </div>
 
 <!-- 8 -->
 <div class="card">
 <div class="slider">
-<img src="product8.jpg" class="slide active">
-<img src="product8-2.jpg" class="slide">
+<img src="product8.jpg" class="slide active" onclick="openImage(this.src)">
+<img src="product8-2.jpg" class="slide" onclick="openImage(this.src)">
 
 <button class="prev" onclick="prevSlide(this)">‹</button>
 <button class="next" onclick="nextSlide(this)">›</button>
@@ -431,15 +229,14 @@ Total: $0
 <div class="card-content">
 <h3>Mini Table</h3>
 <div class="price">$110</div>
-<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
 </div>
 </div>
 
 <!-- 9 -->
 <div class="card">
 <div class="slider">
-<img src="product9.jpg" class="slide active">
-<img src="product9-2.jpg" class="slide">
+<img src="product9.jpg" class="slide active" onclick="openImage(this.src)">
+<img src="product9-2.jpg" class="slide" onclick="openImage(this.src)">
 
 <button class="prev" onclick="prevSlide(this)">‹</button>
 <button class="next" onclick="nextSlide(this)">›</button>
@@ -448,120 +245,20 @@ Total: $0
 <div class="card-content">
 <h3>Cozy Cabinet</h3>
 <div class="price">$220</div>
-<div class="btn" onclick="addToCartFromCard(this)">Add to Cart</div>
 </div>
 </div>
 
 </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-
-<h2 class="title">About Us</h2>
-
-<div class="about">
-Plern Everyday Furniture creates spaces, not just furniture.
-We design with simplicity, warmth, and everyday living in mind.
-
-Our pieces combine natural tones, timeless materials,
-and functional beauty to make your home feel calm,
-effortless, and truly yours.
-</div>
-
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-
-<h2 class="title">Contact</h2>
-
-<div class="contact">
-LINE : @plern.everyday <br>
-Instagram : @plern.everyday
-</div>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-© 2026 Plern Everyday Furniture
-</footer>
 
 <script>
 
-/* CART */
-let cart=[];
-
-function toggleCart(){
-document.getElementById("cart").classList.toggle("open");
-}
-
-function addToCartFromCard(btn){
-
-let card=btn.parentElement;
-
-let name=card.querySelector("h3").innerText;
-
-let price=parseInt(
-card.querySelector(".price")
-.innerText.replace("$","")
-);
-
-let item=cart.find(i=>i.name===name);
-
-if(item){
-item.qty++;
-}else{
-cart.push({
-name,
-price,
-qty:1
-});
-}
-
-renderCart();
-
-document.getElementById("cart")
-.classList.add("open");
-}
-
-function renderCart(){
-
-let html='';
-
-let total=0;
-
-cart.forEach(item=>{
-
-total += item.price * item.qty;
-
-html += `
-<div class="cart-item">
-${item.name} x${item.qty}
-</div>
-`;
-
-});
-
-document.getElementById("cart-items")
-.innerHTML=html;
-
-document.getElementById("total")
-.innerText="Total: $" + total;
-
-document.getElementById("count")
-.innerText=cart.length;
-}
-
-/* IMAGE SLIDER */
+/* NEXT */
 function nextSlide(btn){
 
-let slides=btn.parentElement
-.querySelectorAll(".slide");
+let slides = btn.parentElement.querySelectorAll(".slide");
 
-let i=[...slides].findIndex(s=>
-s.classList.contains("active")
+let i = [...slides].findIndex(
+s => s.classList.contains("active")
 );
 
 slides[i].classList.remove("active");
@@ -570,20 +267,24 @@ slides[(i+1)%slides.length]
 .classList.add("active");
 }
 
+/* PREV */
 function prevSlide(btn){
 
-let slides=btn.parentElement
-.querySelectorAll(".slide");
+let slides = btn.parentElement.querySelectorAll(".slide");
 
-let i=[...slides].findIndex(s=>
-s.classList.contains("active")
+let i = [...slides].findIndex(
+s => s.classList.contains("active")
 );
 
 slides[i].classList.remove("active");
 
-slides[
-(i-1+slides.length)%slides.length
-].classList.add("active");
+slides[(i-1+slides.length)%slides.length]
+.classList.add("active");
+}
+
+/* CLICK IMAGE */
+function openImage(src){
+window.open(src, "_blank");
 }
 
 </script>
