@@ -96,6 +96,7 @@ font-size:12px;
 padding:4px 8px;
 cursor:pointer;
 border-radius:50%;
+z-index:5;
 }
 
 .prev{
@@ -138,18 +139,18 @@ transition:0.3s;
 background:#667042;
 }
 
-/* POPUP IMAGE */
+/* POPUP */
 .popup{
 display:none;
 position:fixed;
-z-index:9999;
 left:0;
 top:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.8);
+background:rgba(0,0,0,0.85);
 justify-content:center;
 align-items:center;
+z-index:9999;
 }
 
 .popup img{
@@ -160,7 +161,7 @@ border-radius:10px;
 
 .popup span{
 position:absolute;
-top:25px;
+top:20px;
 right:35px;
 font-size:40px;
 color:white;
@@ -179,11 +180,21 @@ cursor:pointer;
 <!-- CARD 1 -->
 <div class="card">
 <div class="slider">
-<img src="images/product1.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="images/product1-2.jpg" class="slide" onclick="openPopup(this.src)">
 
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
+<img src="product1.jpg"
+class="slide active"
+onclick="openPopup(this.src)">
+
+<img src="product1-2.jpg"
+class="slide"
+onclick="openPopup(this.src)">
+
+<button class="prev"
+onclick="prevSlide(this)">‹</button>
+
+<button class="next"
+onclick="nextSlide(this)">›</button>
+
 </div>
 
 <div class="card-content">
@@ -196,11 +207,21 @@ cursor:pointer;
 <!-- CARD 2 -->
 <div class="card">
 <div class="slider">
-<img src="images/product2.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="images/product2-2.jpg" class="slide" onclick="openPopup(this.src)">
 
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
+<img src="product2.jpg"
+class="slide active"
+onclick="openPopup(this.src)">
+
+<img src="product2-2.jpg"
+class="slide"
+onclick="openPopup(this.src)">
+
+<button class="prev"
+onclick="prevSlide(this)">‹</button>
+
+<button class="next"
+onclick="nextSlide(this)">›</button>
+
 </div>
 
 <div class="card-content">
@@ -213,11 +234,21 @@ cursor:pointer;
 <!-- CARD 3 -->
 <div class="card">
 <div class="slider">
-<img src="product3.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product3-2.jpg" class="slide" onclick="openPopup(this.src)">
 
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
+<img src="product3.jpg"
+class="slide active"
+onclick="openPopup(this.src)">
+
+<img src="product3-2.jpg"
+class="slide"
+onclick="openPopup(this.src)">
+
+<button class="prev"
+onclick="prevSlide(this)">‹</button>
+
+<button class="next"
+onclick="nextSlide(this)">›</button>
+
 </div>
 
 <div class="card-content">
@@ -230,11 +261,21 @@ cursor:pointer;
 <!-- CARD 4 -->
 <div class="card">
 <div class="slider">
-<img src="product4.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product4-2.jpg" class="slide" onclick="openPopup(this.src)">
 
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
+<img src="product4.jpg"
+class="slide active"
+onclick="openPopup(this.src)">
+
+<img src="product4-2.jpg"
+class="slide"
+onclick="openPopup(this.src)">
+
+<button class="prev"
+onclick="prevSlide(this)">‹</button>
+
+<button class="next"
+onclick="nextSlide(this)">›</button>
+
 </div>
 
 <div class="card-content">
@@ -247,11 +288,21 @@ cursor:pointer;
 <!-- CARD 5 -->
 <div class="card">
 <div class="slider">
-<img src="product5.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product5-2.jpg" class="slide" onclick="openPopup(this.src)">
 
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
+<img src="product5.jpg"
+class="slide active"
+onclick="openPopup(this.src)">
+
+<img src="product5-2.jpg"
+class="slide"
+onclick="openPopup(this.src)">
+
+<button class="prev"
+onclick="prevSlide(this)">‹</button>
+
+<button class="next"
+onclick="nextSlide(this)">›</button>
+
 </div>
 
 <div class="card-content">
@@ -261,80 +312,15 @@ cursor:pointer;
 </div>
 </div>
 
-<!-- CARD 6 -->
-<div class="card">
-<div class="slider">
-<img src="product6.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product6-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Classic Chair</h3>
-<div class="price">$80</div>
-<div class="btn">Add to Cart</div>
-</div>
-</div>
-
-<!-- CARD 7 -->
-<div class="card">
-<div class="slider">
-<img src="product7.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product7-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Wood Shelf</h3>
-<div class="price">$160</div>
-<div class="btn">Add to Cart</div>
-</div>
-</div>
-
-<!-- CARD 8 -->
-<div class="card">
-<div class="slider">
-<img src="product8.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product8-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Mini Table</h3>
-<div class="price">$110</div>
-<div class="btn">Add to Cart</div>
-</div>
-</div>
-
-<!-- CARD 9 -->
-<div class="card">
-<div class="slider">
-<img src="product9.jpg" class="slide active" onclick="openPopup(this.src)">
-<img src="product9-2.jpg" class="slide" onclick="openPopup(this.src)">
-
-<button class="prev" onclick="prevSlide(this)">‹</button>
-<button class="next" onclick="nextSlide(this)">›</button>
-</div>
-
-<div class="card-content">
-<h3>Cozy Cabinet</h3>
-<div class="price">$220</div>
-<div class="btn">Add to Cart</div>
-</div>
-</div>
-
 </div>
 
 <!-- POPUP -->
 <div class="popup" id="popup">
+
 <span onclick="closePopup()">×</span>
+
 <img id="popup-img">
+
 </div>
 
 <script>
@@ -342,45 +328,52 @@ cursor:pointer;
 /* NEXT IMAGE */
 function nextSlide(btn){
 
-let slides = btn.parentElement.querySelectorAll(".slide");
+let slides =
+btn.parentElement.querySelectorAll(".slide");
 
-let i = [...slides].findIndex(
-s => s.classList.contains("active")
+let i =
+[...slides].findIndex(s =>
+s.classList.contains("active")
 );
 
 slides[i].classList.remove("active");
 
-slides[(i+1)%slides.length]
+slides[(i + 1) % slides.length]
 .classList.add("active");
 }
 
 /* PREV IMAGE */
 function prevSlide(btn){
 
-let slides = btn.parentElement.querySelectorAll(".slide");
+let slides =
+btn.parentElement.querySelectorAll(".slide");
 
-let i = [...slides].findIndex(
-s => s.classList.contains("active")
+let i =
+[...slides].findIndex(s =>
+s.classList.contains("active")
 );
 
 slides[i].classList.remove("active");
 
-slides[(i-1+slides.length)%slides.length]
+slides[(i - 1 + slides.length) % slides.length]
 .classList.add("active");
 }
 
 /* OPEN POPUP */
 function openPopup(src){
 
-document.getElementById("popup").style.display="flex";
+document.getElementById("popup")
+.style.display = "flex";
 
-document.getElementById("popup-img").src=src;
+document.getElementById("popup-img")
+.src = src;
 }
 
 /* CLOSE POPUP */
 function closePopup(){
 
-document.getElementById("popup").style.display="none";
+document.getElementById("popup")
+.style.display = "none";
 }
 
 </script>
